@@ -2,7 +2,7 @@
 #include <functional>
 #include <vector>
 #include <sstream>
-#include "string_utils.cpp"
+#include "string_utils.h"
 
 using namespace std;
 
