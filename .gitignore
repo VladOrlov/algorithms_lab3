@@ -9,6 +9,7 @@
 *.class
 target/
 build/
+cmake-build-debug/
 
 userdb.mv.db
 

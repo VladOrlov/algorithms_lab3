@@ -2,29 +2,15 @@
 #include <functional>
 #include <vector>
 #include <sstream>
-#include "string_utils.h"
-
+#include "string_utils.cpp"
 
 using namespace std;
 
-//vector<string> getWords(const string &line) {
-//    vector<string> words;
-//    stringstream textStream(line);
-//    string currentWord;
-//
-//    while (textStream >> currentWord) {
-//        words.push_back(currentWord);
-//    }
-//
-//    return words;
-//}
 
 void printInOrder(vector<char> chars) {
-    cout << "Print in order:" << endl;
     for (int i = 0; i < chars.size(); i++) {
         cout << chars[i] << " ";
     }
-    cout << "" << endl;
 }
 
 void printInOrderRecursively(vector<char> chars, int element) {
@@ -32,17 +18,13 @@ void printInOrderRecursively(vector<char> chars, int element) {
         return;
     }
     cout << chars[element] << " ";
-    cout << "" << endl;
-
     printInOrderRecursively(chars, ++element);
 }
 
 void printInReverseOrder(vector<char> chars) {
-    cout << "Print in reversed order:" << endl;
-    for (int i = chars.size(); i >= 0; i--) {
+    for (int i = chars.size() - 1; i >= 0; i--) {
         cout << chars[i] << " ";
     }
-    cout << "" << endl;
 }
 
 void printInReverseOrderRecursively(vector<char> chars, int element) {
@@ -50,8 +32,6 @@ void printInReverseOrderRecursively(vector<char> chars, int element) {
         return;
     }
     cout << chars[element] << " ";
-    cout << "" << endl;
-
     printInReverseOrderRecursively(chars, --element);
 }
 
@@ -63,8 +43,6 @@ void printInReverseOrderRecursivelyTail(vector<char> chars, int element) {
     printInReverseOrderRecursivelyTail(chars, nextElement);
 
     cout << chars[element] << " ";
-    cout << "" << endl;
-
 }
 
 int main() {
@@ -79,11 +57,25 @@ int main() {
         string firstWord = words[0];
         vector<char> chars(firstWord.begin(), firstWord.end());
 
-//        printInOrder(chars);
-//        printInReverseOrder(chars);
+        cout << "Print in order:" << endl;
+        printInOrder(chars);
+        cout << "" << endl;
 
+        cout << "Print in reversed order:" << endl;
+        printInReverseOrder(chars);
+        cout << "" << endl;
+
+        cout << "Print in order recursively:" << endl;
+        printInOrderRecursively(chars, 0);
+        cout << "" << endl;
+
+        cout << "Print in reversed order recursively:" << endl;
+        printInReverseOrderRecursively(chars, chars.size() - 1);
+        cout << "" << endl;
+
+        cout << "Print in order recursively tail:" << endl;
         printInReverseOrderRecursivelyTail(chars, 0);
-//        printInReverseOrderRecursively(chars, chars.size()-1);
+        cout << "" << endl;
     } else {
         cout << "You entered no words" << input << endl << endl;
     }

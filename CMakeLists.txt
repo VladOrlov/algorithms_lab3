@@ -3,4 +3,4 @@ project(algorithms_lab3)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(algorithms_lab3 lab3.cpp string_utils.cpp string_utils.h)
+add_executable(algorithms_lab3 lab3.cpp string_utils.h)
