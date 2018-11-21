@@ -1,3 +1,5 @@
+#include "lab1.h"
+#include "lab2.h"
 #include "lab3.h"
 #include <iostream>
 #include <vector>
@@ -13,15 +15,16 @@ static map<string, int> predefined_args = {
         {"lab3", 3},
 };
 
+
 void execute(map<string, int> predefined_args, string start_arg);
 
 int execute_lab1() {
-    lab3 l;
+    lab1 l;
     return l.execute();
 }
 
 int execute_lab2() {
-    lab3 l;
+    lab2 l;
     return l.execute();
 }
 

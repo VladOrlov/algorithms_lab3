@@ -4,6 +4,7 @@
 #include <functional>
 #include <vector>
 #include <sstream>
+#include <cstring>
 #include "string_utils.h"
 
 using namespace std;
@@ -32,7 +33,7 @@ namespace string_utils {
 
         bool contains = false;
         for (int i = 0; i < chars.size(); i++) {
-            if(c == chars[i]){
+            if (c == chars[i]) {
                 contains = true;
                 break;
             }
@@ -40,21 +41,28 @@ namespace string_utils {
         return contains;
     }
 
-    string remove_char(string str, char* chars...){
+    string remove_char(string str, char *chars...) {
 
         set<char> chars_to_remove;
 
-        for (int i = 0; i < sizeof(chars); i++) {
+        string str1(chars);
+
+        for (int i = 0; i < get_chars(str1).size(); i++) {
             chars_to_remove.insert(chars[i]);
         }
 
-        vector<char> str_chars(str.begin(), str.end());
+        vector<char> transformedWord;
 
-        for (int j = 1; j < str_chars.size(); j++) {
-            //if (chars_to_remove.find(chars[j])) {
-                //transformedWord.push_back(chars[j]);
-            //}
+        vector<char> str_chars(str.begin(), str.end());
+        for (int j = 0; j < str_chars.size(); j++) {
+            if (chars_to_remove.find(str_chars[j]) == chars_to_remove.end()) {
+                transformedWord.push_back(str_chars[j]);
+            }
         }
+
+        string new_str(transformedWord.begin(), transformedWord.end());
+
+        return new_str;
     }
 
 };
