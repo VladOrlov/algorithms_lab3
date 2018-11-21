@@ -1,27 +1,26 @@
+#ifndef ALGORITHMS_LAB3_STRINGUTILS_H
+#define ALGORITHMS_LAB3_STRINGUTILS_H
+
 #include <functional>
 #include <vector>
 #include <iostream>
 #include <functional>
 #include <vector>
 #include <sstream>
-
-#ifndef ALGORITHMS_LAB3_STRINGUTILS_H
-#define ALGORITHMS_LAB3_STRINGUTILS_H
+#include <set>
 
 using namespace std;
 
 namespace string_utils {
-    vector<string> getWords(string line) {
-        static vector<string> words;
-        stringstream textStream(line);
-        string currentWord;
 
-        while (textStream >> currentWord) {
-            words.push_back(currentWord);
-        }
+    vector<string> get_words(string line);
 
-        return words;
-    }
+    vector<char> get_chars(string line);
+
+    bool contains_char(string str, char c);
+
+    string remove_char(string str, char* chars...);
+
 };
 
 
