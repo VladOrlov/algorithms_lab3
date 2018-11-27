@@ -21,6 +21,7 @@ namespace string_utils {
 
     string remove_char(string str, char* chars...);
 
+    vector<int> get_unique_numbers(vector<string> str_numbers);
 };
 
 

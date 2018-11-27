@@ -55,7 +55,7 @@ namespace lab3 {
 
         vector<string> words = string_utils::get_words(input);
 
-        if (words.size() > 0) {
+        if (!words.empty()) {
             string firstWord = words[0];
             vector<char> chars(firstWord.begin(), firstWord.end());
 

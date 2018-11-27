@@ -38,7 +38,7 @@ int lab1::execute() {
 
     static vector<string> words = string_utils::get_words(input);
 
-    if (words.size() == 0) {
+    if (words.empty()) {
         cout << "You entered no words" << input << endl;
         return -1;
     }
@@ -61,10 +61,11 @@ int lab1::execute() {
 
     transformWords(words, to_remove);
 
-    string last_word_without_dot = string_utils::remove_char(last_word, ".");
+    string last_word_without_dot = string_utils::remove_char(last_word, const_cast<char *>("."));
 
     for (int i = 0; i < words.size(); i++) {
-        if (last_word_without_dot.compare(words[i]) != 0) {
+        if (last_word_without_dot != words[i]) {
+//        if (last_word_without_dot.compare(words[i]) != 0) {
             cout << words[i] << endl;
         }
     }

@@ -32,8 +32,8 @@ namespace string_utils {
         vector<char> chars(str.begin(), str.end());
 
         bool contains = false;
-        for (int i = 0; i < chars.size(); i++) {
-            if (c == chars[i]) {
+        for (char i : chars) {
+            if (c == i) {
                 contains = true;
                 break;
             }
@@ -54,15 +54,30 @@ namespace string_utils {
         vector<char> transformedWord;
 
         vector<char> str_chars(str.begin(), str.end());
-        for (int j = 0; j < str_chars.size(); j++) {
-            if (chars_to_remove.find(str_chars[j]) == chars_to_remove.end()) {
-                transformedWord.push_back(str_chars[j]);
+        for (char str_char : str_chars) {
+            if (chars_to_remove.find(str_char) == chars_to_remove.end()) {
+                transformedWord.push_back(str_char);
             }
         }
 
         string new_str(transformedWord.begin(), transformedWord.end());
 
         return new_str;
+    }
+
+    vector<int> get_unique_numbers(vector<string> str_numbers) {
+        set<int> numbers;
+        for (const string &str_num : str_numbers) {
+            try {
+                int number = std::stoi(str_num);
+                numbers.insert(number);
+            } catch (exception &e) {
+                cout << "Invalid value: " + str_num + ". Ignored." << endl;
+            }
+        }
+
+        vector<int> v(numbers.begin(), numbers.end());
+        return v;
     }
 
 };
